@@ -39,7 +39,9 @@ export default class App extends Component {
   }
 
   setOperation = operation => {
-    
+    if(this.state.current === 0){
+      this.setState({ operation, current: 1, clearDisplay: true })
+    }
   }
 
   render(){
