@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-
-import Button from './src/components/Button';
-import Display from './src/components/Display';
+import React, {Component} from 'react'
+import {Platform, StyleSheet, Text, View} from 'react-native'
+import Button from './src/components/Button'
+import Display from './src/components/Display'
 
 const initialState = {
   displayValue: '0',
   clearDisplay: false,
   operation: null,
-  values: [0,0],
-  current: 0
+  values: [0, 0],
+  current: 0,
 }
 
 export default class App extends Component {
-
   state = { ...initialState }
 
   addDigit = n => {
@@ -42,7 +40,7 @@ export default class App extends Component {
   }
 
   setOperation = operation => {
-    if(this.state.current === 0){
+    if (this.state.current === 0) {
       this.setState({ operation, current: 1, clearDisplay: true })
     } else {
       const equals = operation === '='
@@ -66,17 +64,17 @@ export default class App extends Component {
     }
   }
 
-  render(){
-    return(
-      <SafeAreaView>
+  render() {
+    return (
+      <View style={styles.container}>
         <Display value={this.state.displayValue} />
         <View style={styles.buttons}>
-          <Button label='AC' onClick={this.clearMemory} triple />
+          <Button label='AC' triple onClick={this.clearMemory} />
           <Button label='/' operation onClick={this.setOperation} />
           <Button label='7' onClick={this.addDigit} />
           <Button label='8' onClick={this.addDigit} />
           <Button label='9' onClick={this.addDigit} />
-          <Button label='*' operation onClick={this.setOperation} />
+          <Button label='*' operation  onClick={this.setOperation} />
           <Button label='4' onClick={this.addDigit} />
           <Button label='5' onClick={this.addDigit} />
           <Button label='6' onClick={this.addDigit} />
@@ -85,21 +83,21 @@ export default class App extends Component {
           <Button label='2' onClick={this.addDigit} />
           <Button label='3' onClick={this.addDigit} />
           <Button label='+' operation onClick={this.setOperation} />
-          <Button label='0' onClick={this.addDigit} double />
+          <Button label='0' double  onClick={this.addDigit} />
           <Button label='.' onClick={this.addDigit} />
           <Button label='=' operation onClick={this.setOperation} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   buttons: {
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   }
-})
+});
