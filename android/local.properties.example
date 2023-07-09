@@ -1,0 +1,8 @@
+// Windows:
+// sdk.dir = C:\\Users\\<nome do usuário>\\AppData\\Local\\Android\\Sdk
+
+// Linux:
+// sdk.dir = /home/<nome do usuário>/Android/sdk
+
+// MacOS:
+// sdk.dir = /Users/<nome do usuário>/Library/Android/sdk
